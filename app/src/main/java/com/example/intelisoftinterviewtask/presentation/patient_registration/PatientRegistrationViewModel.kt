@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class `PatientRegistrationViewModel.kt` @Inject constructor(
+class PatientRegistrationViewModel @Inject constructor(
     private val repository: PatientRepository
 ) : ViewModel() {
 

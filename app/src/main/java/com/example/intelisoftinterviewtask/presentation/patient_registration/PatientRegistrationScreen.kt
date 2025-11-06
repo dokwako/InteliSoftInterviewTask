@@ -10,7 +10,7 @@ import com.example.intelisoftinterviewtask.data.Patient
 
 @Composable
 fun PatientRegistrationScreen(
-    viewModel: `PatientRegistrationViewModel.kt` = hiltViewModel()
+    viewModel: PatientRegistrationViewModel = hiltViewModel()
 ) {
     // This statewill hold the text from the TextFields
     var uniqueId by remember { mutableStateOf("") }

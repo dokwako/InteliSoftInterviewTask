@@ -1,9 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    // REQUIRED FOR KOTLIN 2.0 + COMPOSE
     id("org.jetbrains.kotlin.plugin.compose")
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+    id("androidx.room")
 }
 android {
     namespace = "com.example.intelisoftinterviewtask"
@@ -38,6 +41,9 @@ android {
     buildFeatures {
         compose = true
     }
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -59,20 +65,22 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-compose:2.9.5")
 
     //Room (local db)
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.8.3")
+    implementation("androidx.room:room-ktx:2.8.3")
+    ksp("androidx.room:room-compiler:2.8.3")
 
     //Retrofit (API calls)
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation("com.google.dagger:hilt-android:2.57.2")
+    ksp("com.google.dagger:hilt-compiler:2.57.2")
+    implementation("androidx.hilt:hilt-navigation-compose:1.3.0")
 
+
+            implementation(libs.kotlinx.serialization.json)
 }

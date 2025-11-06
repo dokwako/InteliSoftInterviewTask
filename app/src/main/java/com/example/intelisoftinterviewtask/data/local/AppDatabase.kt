@@ -7,7 +7,8 @@ import com.example.intelisoftinterviewtask.data.Vitals
 
 @Database(
     entities = [Patient::class, Vitals::class], // Lists all tables
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
