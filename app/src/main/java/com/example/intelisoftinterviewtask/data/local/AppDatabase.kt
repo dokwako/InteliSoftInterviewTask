@@ -15,4 +15,6 @@ abstract class AppDatabase : RoomDatabase() {
     // Connects the database to our DAO
     abstract fun patientDao(): PatientDao
 
+
+
 }
